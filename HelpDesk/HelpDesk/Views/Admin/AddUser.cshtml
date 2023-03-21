@@ -1,0 +1,72 @@
+﻿@using HelpDesk.Models;
+@model RegisterVM;
+
+@{
+    ViewData["Title"] = "Sign up for a new account";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="mt-5" style="text-align:center">
+            <h4>Add a new user</h4>
+        </div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-12 col-md-8 alert alert-danger offset-2">
+                <span>@TempData["Error"]</span>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-12 col-md-8 offset-2">
+                <form asp-action="AddUser" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="firstname" class="control-label"></label>
+                        <input asp-for="firstname" class="form-control" />
+                        <span asp-validation-for="firstname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="lastname" class="control-label"></label>
+                        <input asp-for="lastname" class="form-control" />
+                        <span asp-validation-for="lastname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="username" class="control-label"></label>
+                        <input type="text" asp-for="username" class="form-control" />
+                        <span asp-validation-for="username" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="email" class="control-label"></label>
+                        <input asp-for="email" class="form-control" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="password" class="control-label"></label>
+                        <input asp-for="password" class="form-control" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="confirmpassword" class="control-label"></label>
+                        <input asp-for="confirmpassword" class="form-control" />
+                        <span asp-validation-for="confirmpassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <a class="btn btn-danger float-start" asp-controller="Admin" asp-action="Index">Cancel</a>
+                        <input class="btn btn-success float-end" type="submit" value="Add User" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

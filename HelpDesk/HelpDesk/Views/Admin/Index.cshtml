@@ -1,0 +1,88 @@
+﻿@model UserViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="d-flex flex-column">
+            <div>
+                <p>Accounts</p>
+            </div>
+
+            <div class="d-flex col-12 col-md-2 mb-5">
+                <a class="ms-md-auto w-100 btn btn-primary" asp-controller="Admin" asp-action="AddUser">Add A User</a>
+            </div>
+
+            @if (Model.Users != null)
+            {
+                @foreach (var user in Model.Users)
+                {
+                    <div class="d-flex flex-column mb-3">
+                        <div style="border: 1px solid black; border-radius:10px; width: 100%" class="d-flex">
+                            <div class="d-flex flex-column ms-3">
+                                <p>Account Name</p>
+                                <div class="d-flex">
+                                    <i class="bi bi-person"></i>
+                                    <p class="ms-2">@user.UserName</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column ms-5">
+                                <p>Account Type</p>
+                                @foreach (string roleName in user.RoleNames)
+                                {
+                                    <p>@roleName</p>
+                                }
+                            </div>
+
+                            <div class="ms-auto me-2">
+                                <form method="post" asp-controller="admin" asp-action="Delete" asp-route-id="@user.Id">
+                                    <button type="submit" class="btn btn-danger mt-3">Delete User</button>
+                                </form>
+                            </div>
+                            @if (user.RoleNames.Contains("User"))
+                            {
+                                <div class="me-2">
+                                    <form method="post" asp-controller="admin" asp-action="AddToAdmin" asp-route-id="@user.Id">
+                                        <button type="submit" class="btn btn-primary     mt-3">Make Admin</button>
+                                    </form>
+                                </div>
+                                <div class="me-2">
+                                    <form method="post" asp-controller="admin" asp-action="AddToEmployee" asp-route-id="@user.Id">
+                                        <button type="submit" class="btn btn-secondary mt-3">Make Employee</button>
+                                    </form>
+                                </div>
+                            }
+                            @if (user.RoleNames.Contains("Employee"))
+                            {
+                                <div class="me-2">
+                                    <form method="post" asp-controller="admin" asp-action="AddToAdmin" asp-route-id="@user.Id">
+                                        <button type="submit" class="btn btn-primary mt-3">Make Admin</button>
+                                    </form>
+                                </div>
+                                <div class="me-2">
+                                    <form method="post" asp-controller="admin" asp-action="RemoveFromEmployee" asp-route-id="@user.Id">
+                                        <button type="submit" class="btn btn-danger mt-3">Remove Employee Role</button>
+                                    </form>
+                                </div>
+                            }
+                            @if (user.RoleNames.Contains("Admin"))
+                            {
+                                <div class="me-2">
+                                    <form method="post" asp-controller="admin" asp-action="RemoveFromAdmin" asp-route-id="@user.Id">
+                                        <button type="submit" class="btn btn-danger mt-3">Remove Admin</button>
+                                    </form>
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </div>
+                }
+            }
+
+        </div>
+
+    </div>
+
+</div>
+

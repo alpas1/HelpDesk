@@ -1,0 +1,39 @@
+﻿@model List<Service>
+
+<div class="container">
+    <div class="row d-flex flex-column">
+
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <div>
+                <a class="btn btn-success text-white mt-2 ButtonWidth" asp-controller="Home" asp-action="CreateService">Add a new service</a>
+            </div>
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="row d-flex mt-3">
+                <div class="d-flex col-12 col-md-6 mt-5">
+                    <div style="position: relative">
+                        <img class="img-fluid" style="max-width: 100%; height:auto; border-radius: 30px" src="@item.imageURL" alt="@item.name" />
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-danger rounded-circle" style="position: absolute; top:0px; right:0px" asp-controller="Home" asp-action="DeleteService" asp-route-id="@item.id">X</a>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column col-12 col-md-6 ServiceDescription">
+                    <h2>@item.name</h2>
+                    <p>
+                        @item.description
+                    </p>
+                    <a class="btn btn-primary text-white" asp-controller="Home" asp-action="RequestService">Request</a>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>

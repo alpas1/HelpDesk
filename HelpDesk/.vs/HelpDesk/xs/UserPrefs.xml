@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{E3376B18-8373-4014-AD49-795D02FF7318}|Default">
+  <MonoDevelop.Ide.ItemProperties.HelpDesk PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="HelpDesk/Models/User.cs">
+    <Files>
+      <File FileName="HelpDesk/Controllers/AccountController.cs" />
+      <File FileName="HelpDesk/Controllers/AdminController.cs" />
+      <File FileName="HelpDesk/Controllers/EmployeeController.cs" />
+      <File FileName="HelpDesk/Models/LoginVM.cs" />
+      <File FileName="HelpDesk/Views/Admin/AddUser.cshtml" />
+      <File FileName="HelpDesk/Data/AppDbInitializer.cs" />
+      <File FileName="HelpDesk/Data/AppDbContext.cs" />
+      <File FileName="HelpDesk/Data/Static/UserRoles.cs" />
+      <File FileName="HelpDesk/Models/DetailModel.cs" />
+      <File FileName="HelpDesk/Models/EmployeeRequest.cs" />
+      <File FileName="HelpDesk/Models/ErrorViewModel.cs" />
+      <File FileName="HelpDesk/Models/OldNewPasswordVM.cs" />
+      <File FileName="HelpDesk/Models/User.cs" Line="23" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelpDesk" expanded="True">
+            <Node name="HelpDesk" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

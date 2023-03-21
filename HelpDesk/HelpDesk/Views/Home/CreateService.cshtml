@@ -1,0 +1,84 @@
+﻿@model HelpDesk.Models.Service
+
+<form action="CreateService" method="post">
+    <div class="container">
+        <div class="row">
+            <div class ="col-12" style="text-align: center">
+                <h1>Add A Service</h1>
+            </div>
+
+            <div style="align-items: center; justify-content: center">
+
+                <div class="d-flex flex-column">
+                    <div class="form-group">
+
+                        <div class="col-12" style="text-align:center">
+                            <label class="mt-5" style="color:black">Type Of Service</label>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <input type="text" class="w-50 form-control" style="display: block; margin: 0 auto" asp-for="name">
+                        </div>
+
+                        <div class="col-12 mt-1" style="text-align: center">
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="col-12 mt-5" style="text-align: center">
+                            <label class="mb-2" style="color:black">Description</label>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <textarea class="w-50 form-control" style="display: block; margin: 0 auto" asp-for="description"></textarea>
+                        </div>
+
+                        <div class="col-12 mt-1" style="text-align: center">
+                            <span asp-validation-for="description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-12 mt-5" style="text-align: center">
+                            <label class="mb-2" style="color:black">ImageURL</label>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <input type="text" id = "imageURL" class="w-50 form-control" style="display: block; margin: 0 auto" asp-for="imageURL">
+                        </div>
+
+                        <div class="col-12 mt-1" style="text-align: center">
+                            <span asp-validation-for="imageURL" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center mt-5 col-12">
+                        <img id="ServicePicturePreview" class="img-fluid" style="max-width:100%; height:auto"/>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <button type="submit" class="btn btn-success rounded w-25" style="display: block; margin: 0 auto">Add</button>
+            </div>
+
+
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById("ServicePicturePreview");
+            output.src = $("#imageURL").val();
+        })
+
+        $("#imageURL").on("change", function () {
+            var output = document.getElementById("ServicePicturePreview");
+            output.src = $(this).val();
+        })
+    </script>
+} 

@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\Employee\" />
+    <Folder Include="Data\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\User\" />
+    <Folder Include="Data\Static\" />
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\ContactUs.png" />
+    <Content Remove="wwwroot\Images\HomeButton.png" />
+    <Content Remove="wwwroot\Images\HomePicture1.png" />
+    <Content Remove="wwwroot\Images\Logo.png" />
+    <Content Remove="wwwroot\Images\ServicesButton.png" />
+    <Content Remove="wwwroot\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Employee\" />
+    <None Remove="Data\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Views\Admin\" />
+    <None Remove="Microsoft.Extensions.Identity.Core" />
+    <None Remove="Views\User\" />
+    <None Remove="Data\Static\" />
+    <None Remove="Views\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Images\ContactUs.png" />
+    <None Include="wwwroot\Images\HomeButton.png" />
+    <None Include="wwwroot\Images\HomePicture1.png" />
+    <None Include="wwwroot\Images\Logo.png" />
+    <None Include="wwwroot\Images\ServicesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.11" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Identity;
+
+@inject UserManager<User> UserManager;
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <li class="nav-item ms-md-2">
+        <a class="nav-link text-white btn btn-success" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+    <li class="nav-item ms-md-2">
+        <a class="nav-link text-white btn btn-primary" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+    </li>
+}
+else
+{
+    <li class="nav-item ms-md-2">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="profile-button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle me-md-1"></i>Welcome @UserManager.GetUserName(User)
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="profile-button">
+                @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                {
+                    <li>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="MyRequests">My Requests</a>
+                    </li>
+
+                }
+                <li>
+                    <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+                </li>
+                
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item ms-md-2">
+        <form asp-controller="Account" asp-action="Logout">
+            <button class="btn btn-danger text-white">
+                Log Out
+            </button>
+        </form>
+    </li>
+}
+
+
